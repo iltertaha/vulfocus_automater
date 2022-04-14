@@ -29,7 +29,7 @@ while True:
 
     ## START CONTAINER
     startedContainer = clinet.start_container(imageLine)
-    if(1):
+    if(VERBOSE):
         print(startedContainer)
     startedHost = startedContainer.host
     stertedHostWithoutPort = startedHost.split(':')[0]
