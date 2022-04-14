@@ -6,7 +6,7 @@ This work is based on  [vulfocus-py](https://github.com/fofapro/vulfocus-py) wit
 
 
 > Built-in vulfocus package contains deprecated URL. This is
-> the updated version. Instead of pip install vulfocus, clone this repo.
+> the updated version. Instead of `pip install vulfocus`, clone this repo.
 > It uses modified version of the vulfocus, located under src folder.*
 
 ##  How to use?
