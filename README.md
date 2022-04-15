@@ -32,7 +32,7 @@ Tested with python3 on Ubuntu. Script uses hardcoded sudo command.
 ```bash
   cd vulfocusAutomate
 ```
-- Run automate scrpt.
+- Run automate script. (`python` can be replaced with `python3` for your environment)
 ```bash
   python automate.py 
 ```
