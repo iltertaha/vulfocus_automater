@@ -13,6 +13,7 @@ This work is based on  [vulfocus-py](https://github.com/fofapro/vulfocus-py) wit
 - Clone this repo.
 - Make sure you have nucleus installed properly. (This repo uses nucleus command from the current working directory)
 - Create vulfocus account from vulfocus.io
+- Run command: `pip install -r requirements.txt` in the vulfocusAutomate folder.
 - Open `credentials.py` and enter your credentials.
 	- To find your licence:
 		- login your vulfocus account and switch to account tab(second from the top in the left menu)
