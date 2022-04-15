@@ -4,12 +4,15 @@ Purpose of this repo is to provide a script that allows the containers hosted by
 
 This work is based on  [vulfocus-py](https://github.com/fofapro/vulfocus-py) with modifications and additions.
 
+Tested with python3 on Ubuntu. Script uses hardcoded sudo command.
 
 ##  How to use?
 - Clone this repo.
 - Make sure you have nucleus installed properly. (This repo uses nucleus command from the current working directory)
 - Create vulfocus account from vulfocus.io
 - Run command: `pip install -r requirements.txt` in the vulfocusAutomate folder.
+	- If you have different python versions installed namely `python` and `python3`. Consider installing with command:
+		- `pip3 install -r requirements.txt` 	
 - Open `credentials.py` and enter your credentials.
 	- To find your licence:
 		- login your vulfocus account and switch to account tab(second from the top in the left menu)
