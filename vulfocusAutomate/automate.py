@@ -8,7 +8,6 @@ arguments = parse_args.parse()
 
 imageFileToRead = open(arguments['image-file'], 'r')
 nucleiTemplateFileToRead = open(arguments['template-file'], 'r')
-sys_path = arguments['working-dir']
 output_dir = arguments['output-dir']
 VERBOSE = arguments['verbose']
 
