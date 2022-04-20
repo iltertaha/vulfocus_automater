@@ -1,17 +1,25 @@
+import parse_args
 import sys, os
+from src.vulfocus.vulfocusClient import VulfocusClient
+import credentials
+from datetime import datetime
+
+arguments = parse_args.parse()
+
+imageFileToRead = open(arguments['image-file'], 'r')
+nucleiTemplateFileToRead = open(arguments['template-file'], 'r')
+sys_path = arguments['working-dir']
+output_dir = arguments['output-dir']
+VERBOSE = arguments['verbose']
+
+
 sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 print( "Current directory: "+ os.path.dirname(os.path.realpath(__file__)))
 
 
-VERBOSE = False
-
-from src.vulfocus.vulfocusClient import VulfocusClient
-import credentials
 clinet = VulfocusClient(username=credentials.USERNAME,licence=credentials.LICENCE)
 images = clinet.get_images()
 
-imageFileToRead = open('./readyToAttackImages.txt', 'r')
-nucleiTemplateFileToRead = open('./readyToAttackNucleiTemplates.txt', 'r')
 
 if(VERBOSE):
     print(images)
@@ -35,15 +43,18 @@ while True:
     if(VERBOSE):
         print(startedContainer)
     startedHost = startedContainer.host
-    stertedHostWithoutPort = startedHost.split(':')[0]
+    startedHostWithoutPort = startedHost.split(':')[0]
     startedPorts = startedContainer.port
 
     # we dont know which port is working for nuclei attack
     # why not try all :D
     for port in startedPorts.values():
+
+        current_time = datetime.now()
         
         ## NUCLEI ATTACK STARTS HERE
-        nucleiCommand = "sudo nuclei -u http://{} -t {} -debug -markdown-export ./nuclei_results".format(stertedHostWithoutPort +":"+ port, nucleiLine.strip())
+        # nucleiCommand = "nuclei -u http://{} -t {} -debug -markdown-export ./nuclei_results".format(startedHostWithoutPort +":"+ port, nucleiLine.strip())
+        nucleiCommand = f'nuclei -u http://{startedHostWithoutPort}:{port} -t {nucleiLine.strip()} -debug -markdown-export {output_dir}_{current_time.year}-{current_time.month}-{current_time.day}_{current_time.hour}:{current_time.minute}'
         cwd = os.path.dirname(os.path.realpath(__file__))
 
         print("Switching to current working directory")
